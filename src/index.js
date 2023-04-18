@@ -1,6 +1,7 @@
 import { registerImage } from "./lazy";
 const mountNOde = document.querySelector('#images');
 const addButton = document.querySelector('button');
+const removeBUtton = document.querySelector('#remove');
 
 const maximum = 122;
 const minimum = 1;
@@ -21,6 +22,14 @@ const createIMageNOde = () => {
   return container;
 }
 
+const removeImage = () => {
+  const nodeElementsImages = mountNOde.children;
+  const listEelement = [...nodeElementsImages];
+
+  listEelement.forEach(element => element.remove());
+}
+
+
 const addIMage = () => {
   const newImage = createIMageNOde();
   mountNOde.appendChild(newImage);
@@ -28,3 +37,4 @@ const addIMage = () => {
 }
 
 addButton.addEventListener('click', addIMage);
+removeBUtton.addEventListener('click', removeImage);
