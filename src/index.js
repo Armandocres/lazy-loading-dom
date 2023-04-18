@@ -1,3 +1,4 @@
+import { registerImage } from "./lazy";
 const mountNOde = document.querySelector('#images');
 const addButton = document.querySelector('button');
 
@@ -13,7 +14,7 @@ const createIMageNOde = () => {
   const image = document.createElement('img');
   image.className= ('mx-auto');
   image.width = '320';
-  image.src = `https://randomfox.ca/images/${random()}.jpg`;
+  image.dataset.src = `https://randomfox.ca/images/${random()}.jpg`;
 
   container.appendChild(image)
 
@@ -23,6 +24,7 @@ const createIMageNOde = () => {
 const addIMage = () => {
   const newImage = createIMageNOde();
   mountNOde.appendChild(newImage);
+  registerImage(newImage);
 }
 
 addButton.addEventListener('click', addIMage);
